@@ -10,7 +10,7 @@ function zone_heroImage() {
 
 	$bigStoryPost = largo_home_single_top();
 	
-	$img = get_the_post_thumbnail($bigStoryPost->ID, 'full');
+	$img = get_the_post_thumbnail($bigStoryPost->ID, 'medium_large');
 	
 	$permalink = get_the_permalink($bigStoryPost->ID);
 	
@@ -78,10 +78,10 @@ function zone_homepagegrid() {
 	$redacted_id = 4541; // "Redacted" is a series
 	$members_id = 4514; // Members Exclusive series is known as "Sidebar" in the taxonomy
 
-	$redacted_post_query = largo_get_series_posts( $redacted_id, 1 );
-	$redacted_post = $redacted_post_query->posts[0];
-	$redacted_post->testing = 'redacted';
-	$shown_ids[] = $redacted_post->ID;
+	// $redacted_post_query = largo_get_series_posts( $redacted_id, 1 );
+	// $redacted_post = $redacted_post_query->posts[0];
+	// $redacted_post->testing = 'redacted';
+	// $shown_ids[] = $redacted_post->ID;
 	
 	$members_posts = new WP_Query(array(
 		'tax_query' => array(
@@ -107,7 +107,7 @@ function zone_homepagegrid() {
 				'terms'    => 'homepage-featured'
 				),
 		),
-		'posts_per_page' => 5,
+		'posts_per_page' => 6,
 		'post__not_in' => $shown_ids,
 		'ignore_sticky_posts' => true
 	);
@@ -120,8 +120,8 @@ function zone_homepagegrid() {
 	 */
 	$grid_posts = array_slice($otherposts, 0, 2, true) +
 	array('member' => $members_post) +
-	array('redacted' => $redacted_post) +
-	array_slice($otherposts, 2, 3, true);
+	// array('redacted' => $redacted_post) +
+	array_slice($otherposts, 2, 4, true);
 	
 	$post_count = 0;
 
