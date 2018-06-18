@@ -78,10 +78,10 @@ function zone_homepagegrid() {
 	$redacted_id = 4541; // "Redacted" is a series
 	$members_id = 4514; // Members Exclusive series is known as "Sidebar" in the taxonomy
 
-	$redacted_post_query = largo_get_series_posts( $redacted_id, 1 );
-	$redacted_post = $redacted_post_query->posts[0];
-	$redacted_post->testing = 'redacted';
-	$shown_ids[] = $redacted_post->ID;
+	// $redacted_post_query = largo_get_series_posts( $redacted_id, 1 );
+	// $redacted_post = $redacted_post_query->posts[0];
+	// $redacted_post->testing = 'redacted';
+	// $shown_ids[] = $redacted_post->ID;
 	
 	$members_posts = new WP_Query(array(
 		'tax_query' => array(
