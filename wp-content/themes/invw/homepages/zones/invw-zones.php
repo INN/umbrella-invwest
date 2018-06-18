@@ -107,7 +107,7 @@ function zone_homepagegrid() {
 				'terms'    => 'homepage-featured'
 				),
 		),
-		'posts_per_page' => 5,
+		'posts_per_page' => 6,
 		'post__not_in' => $shown_ids,
 		'ignore_sticky_posts' => true
 	);
@@ -120,8 +120,8 @@ function zone_homepagegrid() {
 	 */
 	$grid_posts = array_slice($otherposts, 0, 2, true) +
 	array('member' => $members_post) +
-	array('redacted' => $redacted_post) +
-	array_slice($otherposts, 2, 3, true);
+	// array('redacted' => $redacted_post) +
+	array_slice($otherposts, 2, 4, true);
 	
 	$post_count = 0;
 
